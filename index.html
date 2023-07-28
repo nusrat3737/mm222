@@ -1,0 +1,36 @@
+<html>
+<head>
+<title> Project 2 </title>
+<style>
+	*{font-size:40px; font-family:Algerian;}
+	body{ background-color: #48260D}
+</style>
+
+<script>
+
+	function show()
+	{
+	event.preventDefault();
+	let ans = document.getElementById("ans");
+	let url = "https://api.quotable.io/random";
+
+	fetch(url)
+	.then(res => res.json())
+	.then(data => ans.innerHTML = data.content)
+	.catch(err => ans.innerHTML= "issue"+ err);
+	}
+</script>
+
+</head>
+<body>
+
+<center>
+<h1 style = color:white;> Motivational Message V2</h1>
+<form onsubmit="show()">
+<input type="submit" value ="Get Message"/>
+</form>
+<h1 id="ans" />
+</center>
+</body>
+
+</html>
